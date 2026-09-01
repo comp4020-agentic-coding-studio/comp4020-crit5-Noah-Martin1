@@ -15,8 +15,9 @@ list short so each moment has room to do all four jobs:
    Instead of finding more reference images or resources to try to make the animated dogs work, I changed the whole game design. I thought of something that claude could create that would be easier. Explosions rather than a animated attacker made for a simpler danger to the game, easier to animate and control
 3. **how you knew it was right** 
    It is often difficult to make claude create/fix something it already failed to do. And using this knowledge it makes it clear when claude is capable of producing something - if it didnt compleelty fail to do so the first time, its clear that you can build on this topic throughout the project. Here claude failed at the dogs completely - but the explosion was almost spot on from the first iteration.
-4. **the citation** --- a commit or commit range, a `CLAUDE.md` change, a check
-   that went from red to green, a prompt paired with the commit it produced
+4. **the citation**
+   
+   [`8f8db9d`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Noah-Martin1/commit/8f8db9d)
 
 > the prompt: remove the dogs. I have crerated a new game design. follow these instructions while making sure you dont go past the 90/100 budget in the comp4020 status line. # Rabbit vs. Nuclear Blast — Game Design & Implementation Brief
 
