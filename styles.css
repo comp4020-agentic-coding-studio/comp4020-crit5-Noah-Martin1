@@ -14,3 +14,112 @@ main {
 a {
   color: #0b5fff;
 }
+
+/* --- The Long Field ---------------------------------------------------
+   A full-bleed 16:9 stage on a black page. The chrome the invariants ask
+   for — a nav landmark and one h1 — is kept, but styled as the quiet
+   corner captions a title card would use, so the page reads as the picture
+   rather than as a document with a picture in it. */
+
+body.scene {
+  margin: 0;
+  padding: 0;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  background: #05070a;
+  color: #9ba6ac;
+}
+
+.stage {
+  position: relative;
+  width: min(100vw, calc(100svh * 16 / 9));
+  aspect-ratio: 16 / 9;
+}
+
+.stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* A swipe has to reach the game, not scroll the page under it. */
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+/* The title card is an attract screen: it goes when play starts, and comes
+   back when the field resets. */
+.stage nav,
+.stage h1 {
+  transition: opacity 700ms ease;
+}
+
+.stage.playing nav,
+.stage.playing h1 {
+  opacity: 0;
+}
+
+.stage.playing nav a:focus-visible {
+  opacity: 1;
+}
+
+.stage nav,
+.stage h1 {
+  position: absolute;
+  margin: 0;
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.stage nav {
+  top: 1.5rem;
+  left: 1.9rem;
+  pointer-events: auto;
+}
+
+.stage h1 {
+  bottom: 1.4rem;
+  left: 1.9rem;
+  color: rgba(155, 166, 172, 0.52);
+}
+
+.stage nav a {
+  color: rgba(155, 166, 172, 0.32);
+  text-decoration: none;
+  transition: color 240ms ease;
+}
+
+/* Quiet is not the same as unreachable: hover and keyboard focus both bring
+   it fully up. */
+.stage nav a:hover,
+.stage nav a:focus-visible {
+  color: rgba(230, 224, 208, 0.95);
+}
+
+.stage nav a:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 0.45em;
+}
+
+@media (max-width: 40rem) {
+  .stage nav,
+  .stage h1 {
+    font-size: 0.55rem;
+    letter-spacing: 0.24em;
+  }
+
+  .stage nav {
+    top: 1rem;
+    left: 1.1rem;
+  }
+
+  .stage h1 {
+    bottom: 0.9rem;
+    left: 1.1rem;
+  }
+}

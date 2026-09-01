@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COMP4020 prototype</title>
+    <title>The Long Field</title>
     <meta
       name="description"
-      content="Replace this with one sentence saying what this page is. A search result and a link preview both show it."
+      content="A small game in silhouette: a rabbit has forty-five seconds to cross a cornfield to its burrow while a nuclear blast rises behind it and pressure waves roll through the crop."
     />
 
     <!--
-      The link-preview card: public/card.png, 1200x630 --- replace it. The URL
-      resolves against this page, like any link. No og:title/og:description:
-      scrapers fall back to the <title> and description above.
+      The link-preview card: public/card.png, 1200x630. This is the only page,
+      and it sits at the root, so ./card.png resolves against it directly.
     -->
     <meta property="og:type" content="website" />
     <meta property="og:image" content="./card.png" />
@@ -20,19 +19,29 @@
 
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <header>
-      <nav aria-label="Primary">
-        <a href="./">Home</a>
-      </nav>
-    </header>
-    <main>
-      <h1>COMP4020 prototype</h1>
-      <p>
-        Replace this with your prototype. This week's brief is on the course website;
-        <code>spec/README.md</code> explains how the checks in this repo relate to it.
-      </p>
-    </main>
-    <script type="module" src="./main.ts"></script>
+  <body class="scene">
+    <div class="stage">
+      <canvas
+        id="scene"
+        tabindex="0"
+        role="application"
+        aria-label="The Long Field. A rabbit stands on a trodden track at the edge of a floodlit cornfield, a frayed red ribbon tied to one ear. Arrow keys run and space jumps; on a touch screen hold either half of the screen to run and swipe up to jump. Moving sets off a nuclear detonation on the horizon behind, and forty-five seconds to reach the burrow at the far end of the field. Pressure waves cross the corn: shelter behind a drum, a water tank or a boulder as each one passes, and jump the logs, rocks and broken fences in between. A wave that catches you in the open knocks the rabbit unconscious for several seconds while the clock keeps running."
+      >
+        <p>
+          A rabbit crosses a cornfield for its burrow while a nuclear blast
+          rises on the horizon behind it and shockwaves roll through the corn.
+          This is drawn with canvas, which your browser does not appear to
+          support.
+        </p>
+      </canvas>
+      <!--
+        One page, so the navigation landmark is a skip link to the game itself
+        rather than a menu of somewhere else to go. It is the only thing on this
+        page a keyboard user needs to get to.
+      -->
+      <nav aria-label="Primary"><a href="#scene">Skip to the game</a></nav>
+      <h1>The Long Field</h1>
+    </div>
+    <script type="module" src="./scene.ts"></script>
   </body>
 </html>
